@@ -14,7 +14,7 @@ import javax.swing.*;
  * Created by caomengqi on 2017/2/24.
  */
 public class DimensChangeAction extends AnAction{
-    protected JFrame mDialog;
+    protected EditDialog mDialog;
 
     public DimensChangeAction() {
         super("dimensChange");
@@ -34,7 +34,7 @@ public class DimensChangeAction extends AnAction{
 
 
     private void showDialog(){
-        mDialog = new JFrame();
+        mDialog = new EditDialog(EditDialog.Type.ARRAY_FROM_DATA);
         mDialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         mDialog.pack();
         mDialog.setLocationRelativeTo(null);
