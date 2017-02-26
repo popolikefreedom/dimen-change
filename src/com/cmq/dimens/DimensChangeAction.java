@@ -8,13 +8,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.util.PsiUtilBase;
 
-import javax.swing.*;
 
 /**
  * Created by caomengqi on 2017/2/24.
  */
 public class DimensChangeAction extends AnAction{
-    protected EditDialog mDialog;
+    protected Dimens mDialog;
 
     public DimensChangeAction() {
         super("dimensChange");
@@ -29,14 +28,14 @@ public class DimensChangeAction extends AnAction{
 //        XmlWriter writer = new XmlWriter(project, file);
 //        writer.execute();
         //getIDsFromLayout(file);
-        showDialog();
+        System.out.println("actionPerformed");
+        showDialog(project, file);
     }
 
 
-    private void showDialog(){
-        mDialog = new EditDialog(EditDialog.Type.ARRAY_FROM_DATA);
-        mDialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        mDialog.pack();
+    private void showDialog(Project project, PsiFile file){
+        mDialog = new Dimens(project, file);
+        mDialog.setSize(600, 100);
         mDialog.setLocationRelativeTo(null);
         mDialog.setVisible(true);
     }
